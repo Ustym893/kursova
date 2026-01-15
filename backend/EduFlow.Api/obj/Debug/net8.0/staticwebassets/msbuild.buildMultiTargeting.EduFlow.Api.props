@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/EduFlow.Api.props" />
+</Project>

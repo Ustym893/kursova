@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "iMJBB8tPWG+PVcBbwkby1T7AtamsZwvgU8oJbss4Aqs=",
+  "Source": "EduFlow.Api",
+  "BasePath": "_content/EduFlow.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
