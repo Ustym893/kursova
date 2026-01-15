@@ -62,7 +62,10 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 	</ItemGroup>
-	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net8.0-maccatalyst'">
+		<!-- MacCatalyst requires PublishTrimmed=true, but we can disable linking via MtouchLink -->
+		<PublishTrimmed>true</PublishTrimmed>
+		<MtouchLink>None</MtouchLink>
 		<EnableCodeSigning>false</EnableCodeSigning>
 	</PropertyGroup>
 </Project>

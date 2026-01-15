@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EduFlow.Desktop.Views.TeacherStudentsPage"
+             Title="Students">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Text="Students" FontSize="22" FontAttributes="Bold"/>
+
+        <Button Text="Refresh" Clicked="OnRefresh"/>
+
+        <CollectionView x:Name="List">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#E5E7EB" Padding="12" Margin="0,6">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Email}" FontAttributes="Bold"/>
+                            <Label Text="{Binding GradeLevel, StringFormat='Grade: {0}'}" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="ErrorLabel" TextColor="Red"/>
+    </VerticalStackLayout>
+</ContentPage>

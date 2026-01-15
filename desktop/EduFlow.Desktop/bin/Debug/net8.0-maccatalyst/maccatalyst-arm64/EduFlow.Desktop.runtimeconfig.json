@@ -28,6 +28,7 @@
       "System.Runtime.InteropServices.BuiltInComInterop.IsSupported": false,
       "System.Runtime.InteropServices.EnableConsumingManagedCodeFromNativeHosting": false,
       "System.Runtime.InteropServices.EnableCppCLIHostActivation": false,
+      "System.Runtime.InteropServices.Marshalling.EnableGeneratedComInterfaceComImportInterop": false,
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false,
       "System.StartupHookProvider.IsSupported": false,
       "System.Text.Encoding.EnableUnsafeUTF7Encoding": false,

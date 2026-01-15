@@ -19,7 +19,7 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EduFlow.Desktop
 build_property.ProjectDir = /Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/
 build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
 
 [/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -68,3 +68,45 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.RolePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views/RolePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/RolePage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/StudentAssignmentDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.StudentAssignmentDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/StudentAssignmentDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/StudentAssignmentDetailPage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/StudentAssignmentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.StudentAssignmentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/StudentAssignmentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/StudentAssignmentsPage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/StudentHomePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.StudentHomePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/StudentHomePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/StudentHomePage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/TeacherAssignmentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.TeacherAssignmentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/TeacherAssignmentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/TeacherAssignmentsPage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/TeacherDashboardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.TeacherDashboardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/TeacherDashboardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/TeacherDashboardPage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/TeacherHomePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.TeacherHomePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/TeacherHomePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/TeacherHomePage.xaml
+
+[/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/Views/TeacherStudentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduFlow.Desktop.Views.TeacherStudentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/TeacherStudentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/TeacherStudentsPage.xaml

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EduFlow.Desktop.Views.TeacherAssignmentsPage"
+             Title="Assignments">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+
+            <Label Text="Assignments" FontSize="22" FontAttributes="Bold"/>
+
+            <Frame BorderColor="#E5E7EB" Padding="12">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Create assignment" FontAttributes="Bold"/>
+
+                    <Entry x:Name="SubjectEntry" Placeholder="Subject (e.g. Math)"/>
+                    <Entry x:Name="TopicEntry" Placeholder="Topic (e.g. Fractions)"/>
+                    <Entry x:Name="GradeEntry" Placeholder="GradeLevel (number)" Keyboard="Numeric"/>
+                    <Entry x:Name="DifficultyEntry" Placeholder="Difficulty (e.g. Medium)"/>
+                    <Editor x:Name="TaskEditor" Placeholder="Task text..." AutoSize="TextChanges" HeightRequest="100"/>
+
+                    <Button Text="Create" Clicked="OnCreate"/>
+                    <Label x:Name="CreateError" TextColor="Red"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Refresh list" Clicked="OnRefresh"/>
+
+            <CollectionView x:Name="List">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#E5E7EB" Padding="12" Margin="0,6">
+                            <VerticalStackLayout Spacing="6">
+                                <Label Text="{Binding Subject}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Topic}" />
+                                <Label Text="{Binding Status, StringFormat='Status: {0}'}" TextColor="Gray"/>
+                                <Label Text="{Binding Id, StringFormat='Id: {0}'}" FontSize="12" TextColor="Gray"/>
+
+                                <Button Text="Assign to student..." Clicked="OnAssignClicked"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label x:Name="ErrorLabel" TextColor="Red"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

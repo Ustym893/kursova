@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EduFlow.Desktop.Views.StudentAssignmentDetailPage"
+             Title="Assignment">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="Assignment" FontSize="22" FontAttributes="Bold"/>
+
+            <Label x:Name="HeaderLabel" FontAttributes="Bold"/>
+            <Label x:Name="TaskLabel" />
+
+            <Label Text="Your answer:" FontAttributes="Bold"/>
+            <Editor x:Name="AnswerEditor" AutoSize="TextChanges" HeightRequest="140"/>
+
+            <Button Text="Submit" Clicked="OnSubmit"/>
+            <Label x:Name="ErrorLabel" TextColor="Red"/>
+            <Label x:Name="OkLabel" TextColor="Green"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -3,13 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EduFlow.Desktop.Views.LoginPage"
              Title="Login">
+
     <VerticalStackLayout Padding="24" Spacing="12">
-        <Label x:Name="RoleLabel" FontSize="20" FontAttributes="Bold"/>
+
+        <Label x:Name="RoleLabel"
+               Text="Login"
+               FontSize="22"
+               FontAttributes="Bold" />
+
+        <!-- Student: Login/Register toggle (hidden for teacher) -->
+        <HorizontalStackLayout x:Name="StudentModeRow" Spacing="12" IsVisible="False">
+            <Button x:Name="StudentLoginModeBtn" Text="Login" Clicked="OnStudentLoginMode"/>
+            <Button x:Name="StudentRegisterModeBtn" Text="Register" Clicked="OnStudentRegisterMode"/>
+        </HorizontalStackLayout>
 
         <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
         <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
 
-        <Button Text="Login" Clicked="OnLogin"/>
+        <!-- Student register only -->
+        <Entry x:Name="InviteCodeEntry"
+               Placeholder="Invite code (required for student register)"
+               IsVisible="False"/>
+
+        <Entry x:Name="GradeLevelEntry"
+               Placeholder="Grade level (number)"
+               Keyboard="Numeric"
+               IsVisible="False"/>
+
+        <Button x:Name="SubmitButton" Text="Continue" Clicked="OnLogin"/>
+
         <Label x:Name="ErrorLabel" TextColor="Red"/>
+
     </VerticalStackLayout>
 </ContentPage>
