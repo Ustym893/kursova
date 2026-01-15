@@ -1,11 +1,16 @@
-﻿namespace EduFlow.Desktop;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace EduFlow.Desktop;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public static IServiceProvider Services { get; private set; } = default!;
 
-		MainPage = new AppShell();
-	}
+    public App(IServiceProvider services)
+    {
+        InitializeComponent();
+        Services = services;
+
+        MainPage = new NavigationPage(new EduFlow.Desktop.Views.RolePage());
+    }
 }

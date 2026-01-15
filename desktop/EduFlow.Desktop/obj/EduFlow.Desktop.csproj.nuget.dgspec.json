@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/EduFlow.Desktop.csproj": {}
+  },
+  "projects": {
+    "/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/EduFlow.Desktop.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/EduFlow.Desktop.csproj",
+        "projectName": "EduFlow.Desktop",
+        "projectPath": "/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/EduFlow.Desktop.csproj",
+        "packagesPath": "/Users/ustym/.nuget/packages/",
+        "outputPath": "/Users/ustym/Desktop/labs/kursova/1/EduFlow/desktop/EduFlow.Desktop/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/Users/ustym/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-maccatalyst"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-maccatalyst18.0": {
+            "targetAlias": "net8.0-maccatalyst",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-maccatalyst18.0": {
+          "targetAlias": "net8.0-maccatalyst",
+          "dependencies": {
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.Maui.Controls": {
+              "target": "Package",
+              "version": "[8.0.100, )"
+            },
+            "Microsoft.Maui.Controls.Compatibility": {
+              "target": "Package",
+              "version": "[8.0.100, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.22, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "xamarinios10",
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.MacCatalyst": {
+              "privateAssets": "all"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "maccatalyst-arm64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
