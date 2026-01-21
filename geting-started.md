@@ -65,6 +65,7 @@ cd kursova
 Перейдіть у папку:
 backend/EduFlow.Api
 
+(поки можна пропустити)
 Скопіюйте файл:
 .env.example -> .env
 За потреби відкрийте `.env` і змініть значення  
@@ -76,6 +77,7 @@ backend/EduFlow.Api
 
 Перейдіть у папку:
 cd docker
+
 Запустіть базу:
 docker compose up -d
 
