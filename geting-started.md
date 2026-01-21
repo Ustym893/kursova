@@ -90,7 +90,9 @@ docker ps
 ### 4. Запуск бекенду та застосування міграцій
 
 Перейдіть у папку бекенду:
-cd ../backend/EduFlow.Api
+cd backend
+
+cd EduFlow.Api
 
 Відновіть пакети: dotnet restore
 
