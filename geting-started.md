@@ -118,8 +118,11 @@ Swagger UI має відкритися без помилок.
 ---
 
 #### Варіант B — через CLI (macOS)
+
 cd desktop/EduFlow.Desktop
+
 dotnet run -f net8.0-maccatalyst
+
 ---
 
 ## Verification
