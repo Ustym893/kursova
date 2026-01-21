@@ -55,6 +55,7 @@ https://git-scm.com
 
 ### 1. Клонування репозиторію
 git clone https://github.com/Ustym893/kursova.git
+
 cd kursova
 
 ---
