@@ -118,3 +118,4 @@
 /Users/ustym/Desktop/labs/kursova/1/EduFlow/backend/EduFlow.Api/obj/Debug/net8.0/EduFlow.Api.pdb
 /Users/ustym/Desktop/labs/kursova/1/EduFlow/backend/EduFlow.Api/obj/Debug/net8.0/EduFlow.Api.genruntimeconfig.cache
 /Users/ustym/Desktop/labs/kursova/1/EduFlow/backend/EduFlow.Api/obj/Debug/net8.0/ref/EduFlow.Api.dll
+/Users/ustym/Desktop/labs/kursova/1/EduFlow/backend/EduFlow.Api/obj/Debug/net8.0/EduFlow.Api.sourcelink.json

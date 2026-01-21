@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EduFlow.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8290f1f20a9c9178b283485c7aed2540c265353")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09a0e38928532538606dae0ec79a6e502e8eed49")]
 [assembly: System.Reflection.AssemblyProductAttribute("EduFlow.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EduFlow.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
