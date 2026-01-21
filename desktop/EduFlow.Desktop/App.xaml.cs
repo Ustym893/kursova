@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.IO;
+﻿using EduFlow.Desktop.Services;
+using EduFlow.Desktop.Views;
+
 namespace EduFlow.Desktop;
 
 public partial class App : Application
@@ -12,30 +12,51 @@ public partial class App : Application
         InitializeComponent();
         Services = services;
 
-        MainPage = new NavigationPage(new EduFlow.Desktop.Views.RolePage());
-        AppDomain.CurrentDomain.UnhandledException += (_, e) =>
+        // Temporary page
+        MainPage = new ContentPage
         {
-            try
+            Content = new VerticalStackLayout
             {
-                File.WriteAllText(
-                    Path.Combine(FileSystem.AppDataDirectory, "eduflow-crash.txt"),
-                    e.ExceptionObject?.ToString() ?? "Unknown unhandled exception"
-                );
+                Padding = 32,
+                Children =
+                {
+                    new Label
+                    {
+                        Text = "EduFlow",
+                        FontSize = 24,
+                        HorizontalOptions = LayoutOptions.Center
+                    },
+                    new ActivityIndicator
+                    {
+                        IsRunning = true
+                    }
+                }
             }
-            catch { }
         };
+    }
 
-        TaskScheduler.UnobservedTaskException += (_, e) =>
+    protected override async void OnStart()
+    {
+        base.OnStart();
+
+        var auth = Services.GetRequiredService<IAuthStore>();
+        await auth.LoadAsync();
+
+        // 🔴 CRITICAL: switch page on UI thread
+        MainThread.BeginInvokeOnMainThread(() =>
         {
-            try
+            if (!string.IsNullOrWhiteSpace(auth.Token) &&
+                !string.IsNullOrWhiteSpace(auth.Role))
             {
-                File.WriteAllText(
-                    Path.Combine(FileSystem.AppDataDirectory, "eduflow-crash.txt"),
-                    e.Exception.ToString()
-                );
+                if (auth.Role == "TEACHER")
+                    MainPage = new NavigationPage(new TeacherHomePage());
+                else
+                    MainPage = new NavigationPage(new StudentHomePage());
             }
-            catch { }
-        };
-        
+            else
+            {
+                MainPage = new NavigationPage(new RolePage());
+            }
+        });
     }
 }

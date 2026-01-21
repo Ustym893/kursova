@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EduFlow.Desktop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+b8290f1f20a9c9178b283485c7aed2540c265353")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4318b87ab98d513a6f31c823fb5c50e8e520133d")]
 [assembly: System.Reflection.AssemblyProductAttribute("EduFlow.Desktop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EduFlow.Desktop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
