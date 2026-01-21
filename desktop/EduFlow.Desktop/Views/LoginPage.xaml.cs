@@ -5,7 +5,9 @@ namespace EduFlow.Desktop.Views;
 
 public partial class LoginPage : ContentPage
 {
-    private readonly string _role;
+    private readonly string _role; // "TEACHER" or "STUDENT"
+
+    private bool _isTeacherRegisterMode;
     private bool _isStudentRegisterMode;
     private bool _isBusy;
 
@@ -27,34 +29,52 @@ public partial class LoginPage : ContentPage
     {
         base.OnAppearing();
 
+        // Show correct toggles
+        TeacherModeRow.IsVisible = _role == "TEACHER";
         StudentModeRow.IsVisible = _role == "STUDENT";
-        SetStudentMode(false);
+
+        // Default mode
+        if (_role == "TEACHER")
+            SetTeacherMode(isRegister: false);
+        else
+            SetStudentMode(isRegister: false);
+    }
+
+    private void SetTeacherMode(bool isRegister)
+    {
+        _isTeacherRegisterMode = isRegister;
+        _isStudentRegisterMode = false;
+
+        TeacherDisplayNameEntry.IsVisible = (_role == "TEACHER") && isRegister;
+        InviteCodeEntry.IsVisible = false;
+        GradeLevelEntry.IsVisible = false;
+
+        SubmitButton.Text = isRegister ? "Register" : "Login";
+        ErrorLabel.Text = "";
     }
 
     private void SetStudentMode(bool isRegister)
     {
         _isStudentRegisterMode = isRegister;
+        _isTeacherRegisterMode = false;
 
-        InviteCodeEntry.IsVisible = _role == "STUDENT" && isRegister;
-        GradeLevelEntry.IsVisible = _role == "STUDENT" && isRegister;
+        InviteCodeEntry.IsVisible = (_role == "STUDENT") && isRegister;
+        GradeLevelEntry.IsVisible = (_role == "STUDENT") && isRegister;
+        TeacherDisplayNameEntry.IsVisible = false;
 
-        SubmitButton.Text = (_role == "STUDENT" && isRegister)
-            ? "Register"
-            : "Login";
-
+        SubmitButton.Text = isRegister ? "Register" : "Login";
         ErrorLabel.Text = "";
     }
 
-    private void OnStudentLoginMode(object sender, EventArgs e)
-        => SetStudentMode(false);
+    private void OnTeacherLoginMode(object sender, EventArgs e) => SetTeacherMode(false);
+    private void OnTeacherRegisterMode(object sender, EventArgs e) => SetTeacherMode(true);
 
-    private void OnStudentRegisterMode(object sender, EventArgs e)
-        => SetStudentMode(true);
+    private void OnStudentLoginMode(object sender, EventArgs e) => SetStudentMode(false);
+    private void OnStudentRegisterMode(object sender, EventArgs e) => SetStudentMode(true);
 
-    private async void OnLogin(object sender, EventArgs e)
+    private async void OnSubmit(object sender, EventArgs e)
     {
-        if (_isBusy)
-            return;
+        if (_isBusy) return;
 
         _isBusy = true;
         SubmitButton.IsEnabled = false;
@@ -75,66 +95,93 @@ public partial class LoginPage : ContentPage
 
             AuthResponse res;
 
+            // ==========================
+            // TEACHER
+            // ==========================
             if (_role == "TEACHER")
             {
-                res = await _api.PostAsync<AuthResponse>(
-                    "/api/auth/teacher/login",
-                    new TeacherLoginRequest { Email = email, Password = password }
-                );
+                if (_isTeacherRegisterMode)
+                {
+                    var displayName = TeacherDisplayNameEntry.Text?.Trim();
+
+                    res = await _api.PostAsync<AuthResponse>(
+                        "/api/auth/teacher/register",
+                        new TeacherRegisterRequest
+                        {
+                            Email = email,
+                            Password = password,
+                            DisplayName = string.IsNullOrWhiteSpace(displayName) ? null : displayName
+                        }
+                    );
+                }
+                else
+                {
+                    res = await _api.PostAsync<AuthResponse>(
+                        "/api/auth/teacher/login",
+                        new TeacherLoginRequest { Email = email, Password = password }
+                    );
+                }
 
                 _auth.Token = res.Token;
                 _auth.Role = res.Role;
                 await _auth.SaveAsync();
 
-                Application.Current!.MainPage =
-                    new NavigationPage(new TeacherHomePage());
+                Application.Current!.MainPage = new NavigationPage(new TeacherHomePage());
                 return;
             }
 
+            // ==========================
             // STUDENT
-            if (_isStudentRegisterMode)
+            // ==========================
+            if (_role == "STUDENT")
             {
-                var invite = InviteCodeEntry.Text?.Trim() ?? "";
-                if (string.IsNullOrWhiteSpace(invite))
+                if (_isStudentRegisterMode)
                 {
-                    ErrorLabel.Text = "Invite code is required.";
-                    return;
-                }
-
-                if (!int.TryParse(GradeLevelEntry.Text, out var gradeLevel))
-                {
-                    ErrorLabel.Text = "Grade level must be a number.";
-                    return;
-                }
-
-                res = await _api.PostAsync<AuthResponse>(
-                    "/api/auth/student/register",
-                    new StudentRegisterRequest
+                    var invite = InviteCodeEntry.Text?.Trim() ?? "";
+                    if (string.IsNullOrWhiteSpace(invite))
                     {
-                        Email = email,
-                        Password = password,
-                        InviteCode = invite,
-                        GradeLevel = gradeLevel
+                        ErrorLabel.Text = "Invite code is required.";
+                        return;
                     }
-                );
-            }
-            else
-            {
-                res = await _api.PostAsync<AuthResponse>(
-                    "/api/auth/student/login",
-                    new StudentLoginRequest { Email = email, Password = password }
-                );
+
+                    if (!int.TryParse(GradeLevelEntry.Text, out var gradeLevel))
+                    {
+                        ErrorLabel.Text = "Grade level must be a number.";
+                        return;
+                    }
+
+                    res = await _api.PostAsync<AuthResponse>(
+                        "/api/auth/student/register",
+                        new StudentRegisterRequest
+                        {
+                            Email = email,
+                            Password = password,
+                            InviteCode = invite,
+                            GradeLevel = gradeLevel
+                        }
+                    );
+                }
+                else
+                {
+                    res = await _api.PostAsync<AuthResponse>(
+                        "/api/auth/student/login",
+                        new StudentLoginRequest { Email = email, Password = password }
+                    );
+                }
+
+                _auth.Token = res.Token;
+                _auth.Role = res.Role;
+                await _auth.SaveAsync();
+
+                Application.Current!.MainPage = new NavigationPage(new StudentHomePage());
+                return;
             }
 
-            _auth.Token = res.Token;
-            _auth.Role = res.Role;
-            await _auth.SaveAsync();
-
-            Application.Current!.MainPage =
-                new NavigationPage(new StudentHomePage());
+            ErrorLabel.Text = "Unknown role.";
         }
         catch (Exception ex)
         {
+            // show message (not whole ToString for UI cleanliness)
             ErrorLabel.Text = ex.Message;
         }
         finally

@@ -12,6 +12,14 @@
                FontSize="22"
                FontAttributes="Bold" />
 
+        <!-- Teacher: Login/Register toggle -->
+        <HorizontalStackLayout x:Name="TeacherModeRow"
+                               Spacing="12"
+                               IsVisible="False">
+            <Button Text="Login" Clicked="OnTeacherLoginMode"/>
+            <Button Text="Register" Clicked="OnTeacherRegisterMode"/>
+        </HorizontalStackLayout>
+
         <!-- Student: Login/Register toggle -->
         <HorizontalStackLayout x:Name="StudentModeRow"
                                Spacing="12"
@@ -28,6 +36,11 @@
                Placeholder="Password"
                IsPassword="True"/>
 
+        <!-- Teacher register only -->
+        <Entry x:Name="TeacherDisplayNameEntry"
+               Placeholder="Display name (optional)"
+               IsVisible="False"/>
+
         <!-- Student register only -->
         <Entry x:Name="InviteCodeEntry"
                Placeholder="Invite code"
@@ -40,7 +53,7 @@
 
         <Button x:Name="SubmitButton"
                 Text="Continue"
-                Clicked="OnLogin"/>
+                Clicked="OnSubmit"/>
 
         <!-- Loading -->
         <ActivityIndicator x:Name="LoadingIndicator"
